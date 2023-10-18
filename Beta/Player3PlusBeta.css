@@ -9,9 +9,14 @@
 @supportURL     https://github.com/iminonet/Player3Plus/issues
 @updateURL      https://raw.githubusercontent.com/iminonet/Player3Plus/main/Beta/Player3PlusBeta.css
 @preprocessor stylus
-@var select   annotype   "Annotation Type"   {
+@var select   annotype   "Annotations Effect"   {
   "Normal": "normal",
-  "Impact": "impact"
+  "Impact (Bevel)": "impact"
+}
+@var select annolinkicon "Annotations Link Icon" {
+  "Disable": "disable",
+  "Enable": "icon1",
+  "Use Alternate Icon": "icon2"
 }
 ==/UserStyle== */
 @-moz-document domain("www.youtube.com") {
@@ -578,7 +583,8 @@
 
     .__cxt-ar-annotation__[data-ar-type="highlight"] {
         border-radius: 5px;
-        border-width: 2.8px !important;
+        border-width: 3px !important;
+        filter: drop-shadow(0px 3px 2px rgba(0, 0, 0, 0.3))
     }
 
     .__cxt-ar-annotation__[data-ar-style="highlightText"] {
@@ -586,17 +592,39 @@
     }
 
     .__cxt-ar-annotation__ {
-        border-radius: 5px
+        border-radius: 4px;
     }
     
     if annotype == impact {
+        .__cxt-ar-annotation__[data-ar-type="text"] {
+            &[data-ar-style="anchored"], &[data-ar-style="popup"]  {
+                filter: drop-shadow(1.5px 1.5px 1px rgba(0, 0, 0, 0.3));
+            }
+        }
+
 		@css {
+            .__cxt-ar-annotation__[data-ar-type="text"] {
+                text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.2)
+            }
+            
+            .__cxt-ar-annotation__[data-ar-style="title"], [data-ar-style="speech"] {
+                box-shadow: unset !important;
+            }
+            
 			.__cxt-ar-annotation__[data-ar-type="text"][style*="151, 25, 25"] {
 				box-shadow: rgba(151, 25, 25, 0.8) 0px -4px 3px inset, rgba(255, 255, 255, 0.4) 0px 3px 3px inset;
 			}
 
+            .__cxt-ar-annotation__[data-ar-type="text"][style*="203, 62, 62"] {
+				box-shadow: rgba(203, 62, 62, 0.8) 0px -4px 3px inset, rgba(255, 255, 255, 0.4) 0px 3px 3px inset;
+			}
+            
 			.__cxt-ar-annotation__[data-ar-type="text"][style*="64, 62, 154"] {
 				box-shadow: rgba(64, 62, 154, 0.8) 0px -4px 3px inset, rgba(255, 255, 255, 0.4) 0px 3px 3px inset;
+			}
+            
+			.__cxt-ar-annotation__[data-ar-type="text"][style*="6, 56, 148"] {
+				box-shadow: rgba(6, 56, 148, 0.8) 0px -4px 3px inset, rgba(255, 255, 255, 0.4) 0px 3px 3px inset;
 			}
 
 			.__cxt-ar-annotation__[data-ar-type="text"][style*="106, 185, 117"] {
@@ -610,11 +638,53 @@
 			.__cxt-ar-annotation__[data-ar-type="text"][style*="95, 160, 211"] {
 				box-shadow: rgba(95, 160, 211, 0.8) 0px -4px 3px inset, rgba(255, 255, 255, 0.4) 0px 3px 3px inset;
 			}
+            
+			.__cxt-ar-annotation__[data-ar-type="text"][style*="180, 200, 223"] {
+				box-shadow: rgba(180, 200, 223, 0.8) 0px -4px 3px inset, rgba(255, 255, 255, 0.4) 0px 3px 3px inset;
+			}
 
 			.__cxt-ar-annotation__[data-ar-type="text"][style*="0, 0, 0"] {
 				box-shadow: rgba(0, 0, 0, 0.2) 0px -4px 3px inset, rgba(255, 255, 255, 0.4) 0px 3px 3px inset;
 			}
+            
+			.__cxt-ar-annotation__[data-ar-type="text"][style*="255, 255, 255"] {
+				box-shadow: rgba(0, 0, 0, 0.2) 0px -4px 3px inset, rgba(255, 255, 255, 0.4) 0px 3px 3px inset;
+			}
 		}
+    }
+    
+    if annolinkicon == icon1 {
+    @css {
+        .__cxt-ar-annotation__[data-ar-type="text"][data-ar-style="anchored"], .__cxt-ar-annotation__[data-ar-style="popup"]:before {
+              content: ' ';
+              display: block;
+              position: absolute;
+              left: 0;
+              top: 0;
+              width: 100%;
+              height: 100%;
+              opacity: 0.5;
+              background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAQAAACR313BAAAAAmJLR0QA/4ePzL8AAAAJcEhZcwAAAEgAAABIAEbJaz4AAAAJdnBBZwAAAA8AAAAPAGMcExMAAAB2SURBVBjTnZG7CYBQDEXvUxEEUbByA9dyFSs3cAYHsHIDW1uneC5wLPyAf/HcLocEkhjQA470rs1lxo/dM6XYsgKwVWtWhLCw19mTThnudUIPQEF11iHdIoVLe9Q+zSKFiPGPwwNytIsFA5LM5U2sIm9e/udLJnOJqhuNa71/AAAAAElFTkSuQmCC);
+              background-repeat: no-repeat;
+              background-position: center right 5px;
+            }
+        }
+    } else if annolinkicon == icon2 {
+    @css {
+        .__cxt-ar-annotation__[data-ar-type="text"][data-ar-style="anchored"], .__cxt-ar-annotation__[data-ar-style="popup"]:before {
+              content: ' ';
+              display: block;
+              position: absolute;
+              left: 0;
+              top: 0;
+              width: 100%;
+              height: 100%;
+              opacity: 0.5;
+              background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAlklEQVR42mNgQAL/KQAMVDUISPshG8RAAgAq/wjWA8RCQHyPGgalAfEHXAYBue34wgTZoEx8BkHFV1DLIHWKDQJyJYD4NkUGQSPiEpL+RiCeRpJBQIoHiE8iGwIVZwbiXaQYxAbEW5ANQdLMD5InxWucQJxAbDoiGGtkG0RWXqOJQRQBqEGUgBugWAQZpAXNuORiFZCDAAWnIZ/tO7gLAAAAAElFTkSuQmCC');
+              background-repeat: no-repeat;
+              background-position: center right 5px;
+            }
+        }
     }
 
     /* captions */
