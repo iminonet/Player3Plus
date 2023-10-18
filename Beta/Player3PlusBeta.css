@@ -5,6 +5,9 @@
 @description    This userstyle adds extra stuff and accurary to TWilvin's 2012 HTML5 Player.
 @author         iminonet
 @license        GNU GPLv3
+@homepageURL    https://github.com/iminonet/Player3Plus
+@supportURL     https://github.com/iminonet/Player3Plus/issues
+@updateURL      https://github.com/iminonet/Player3Plus/Beta/Player3PlusBeta.css
 @preprocessor stylus
 @var select   annotype   "Annotation Type"   {
   "Normal": "normal",
