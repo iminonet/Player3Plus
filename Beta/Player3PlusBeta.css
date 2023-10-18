@@ -595,6 +595,117 @@
         border-radius: 4px;
     }
     
+    /* label */
+    .__cxt-ar-annotation__[data-ar-style="label"] {
+        & {
+            background: unset !important;
+            opacity: 0.7;
+        }
+        
+        &:hover {
+            background: unset !important;
+            opacity: 0.9;
+        }
+        
+        & > span {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: unset;
+            bottom: 0;
+            width: 100%;
+        }
+        
+        &:hover > span {
+            display: unset;
+        }
+    }
+    
+    
+    @css {
+            /* label border */
+			.__cxt-ar-annotation__[data-ar-style="label"][style*="151, 25, 25"] {
+				border: solid 3px rgba(151, 25, 25); 
+			}
+
+            .__cxt-ar-annotation__[data-ar-style="label"][style*="203, 62, 62"] {
+				border: solid 3px rgba(203, 62, 62); 
+			}
+            
+			.__cxt-ar-annotation__[data-ar-style="label"][style*="64, 62, 154"] {
+				border: solid 3px rgba(64, 62, 154); 
+			}
+            
+			.__cxt-ar-annotation__[data-ar-style="label"][style*="6, 56, 148"] {
+				border: solid 3px rgba(6, 56, 148); 
+			}
+
+			.__cxt-ar-annotation__[data-ar-style="label"][style*="106, 185, 117"] {
+				border: solid 3px rgba(106, 185, 117); 
+			}
+
+			.__cxt-ar-annotation__[data-ar-style="label"][style*="222, 96, 173"] {
+				border: solid 3px rgba(222, 96, 173); 
+			}
+
+			.__cxt-ar-annotation__[data-ar-style="label"][style*="95, 160, 211"] {
+				border: solid 3px rgba(95, 160, 211); 
+			}
+            
+			.__cxt-ar-annotation__[data-ar-style="label"][style*="180, 200, 223"] {
+				border: solid 3px rgba(180, 200, 223); 
+			}
+
+			.__cxt-ar-annotation__[data-ar-style="label"][style*="0, 0, 0"] {
+				border: solid 3px rgba(0, 0, 0); 
+			}
+            
+			.__cxt-ar-annotation__[data-ar-style="label"][style*="255, 255, 255"] {
+				border: solid 3px rgba(255, 255, 255); 
+			}
+            
+            /*label text background*/
+			.__cxt-ar-annotation__[data-ar-style="label"][style*="151, 25, 25"] > span {
+				background: rgba(151, 25, 25); 
+			}
+
+            .__cxt-ar-annotation__[data-ar-style="label"][style*="203, 62, 62"] > span  {
+				background: rgba(203, 62, 62); 
+			}
+            
+			.__cxt-ar-annotation__[data-ar-style="label"][style*="64, 62, 154"] > span  {
+				background: rgba(64, 62, 154); 
+			}
+            
+			.__cxt-ar-annotation__[data-ar-style="label"][style*="6, 56, 148"] > span  {
+				background: rgba(6, 56, 148); 
+			}
+
+			.__cxt-ar-annotation__[data-ar-style="label"][style*="106, 185, 117"] > span  {
+				background: rgba(106, 185, 117); 
+			}
+
+			.__cxt-ar-annotation__[data-ar-style="label"][style*="222, 96, 173"] > span  {
+				background: rgba(222, 96, 173); 
+			}
+
+			.__cxt-ar-annotation__[data-ar-style="label"][style*="95, 160, 211"] > span  {
+				background: rgba(95, 160, 211); 
+			}
+            
+			.__cxt-ar-annotation__[data-ar-style="label"][style*="180, 200, 223"] > span  {
+				background: rgba(180, 200, 223); 
+			}
+
+			.__cxt-ar-annotation__[data-ar-style="label"][style*="0, 0, 0"] > span  {
+				background: rgba(0, 0, 0); 
+			}
+            
+			.__cxt-ar-annotation__[data-ar-style="label"][style*="255, 255, 255"] > span  {
+				background: rgba(255, 255, 255); 
+			}
+    }
+
     if annotype == impact {
         .__cxt-ar-annotation__[data-ar-type="text"] {
             &[data-ar-style="anchored"], &[data-ar-style="popup"]  {
@@ -607,7 +718,7 @@
                 text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.2)
             }
             
-            .__cxt-ar-annotation__[data-ar-style="title"], [data-ar-style="speech"] {
+            .__cxt-ar-annotation__[data-ar-style="title"], [data-ar-style="speech"], [data-ar-style="label"] {
                 box-shadow: unset !important;
             }
             
@@ -655,7 +766,7 @@
     
     if annolinkicon == icon1 {
     @css {
-        .__cxt-ar-annotation__[data-ar-type="text"][data-ar-style="anchored"], .__cxt-ar-annotation__[data-ar-style="popup"]:before {
+            .__cxt-ar-annotation__[data-ar-type="text"][data-ar-style="anchored"], .__cxt-ar-annotation__[data-ar-style="popup"]:before {
               content: ' ';
               display: block;
               position: absolute;
